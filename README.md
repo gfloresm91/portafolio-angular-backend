@@ -5,6 +5,7 @@ Api Rest del portafolio web con Angular
 ## Conceptos vistos
 
 - Conexión entre Node.js y MongoDb
+- Creación de servidor con express
 
 ## Pre-requisitos
 
