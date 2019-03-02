@@ -13,6 +13,7 @@ Api Rest del portafolio web con Angular
 - Creación de un método para obtener el registro guardado
 - Creación de método que liste todos los registros
 - Creación de método para actualizar un registro
+- Creación de método para eliminar un registro
 
 ## Pre-requisitos
 
