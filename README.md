@@ -9,10 +9,13 @@ Api Rest del portafolio web con Angular
 - Creación de modelos
 - Creación de controladores
 - Creación de rutas
+- Creación de método para guardar registros
 
 ## Pre-requisitos
 
 - Tener instalada la última versión de docker y docker-compose
+- Renombrar el archivo .env.sample a .env
+- Renombrar el archivo example.production.js en la carpeta environment a production.js
 
 ## Instalación
 

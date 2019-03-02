@@ -17,13 +17,5 @@ app.use(bodyParser.json());
 // Rutas
 app.use('/api', project_routes);
 
-app.get('/test', (req, res) => {
-    res.status(200).send(
-        {
-            message: 'Hola mundo desde mi API Node.js'
-        }
-    )
-});
-
 // Exportar
 module.exports = app;
