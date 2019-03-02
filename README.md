@@ -10,6 +10,7 @@ Api Rest del portafolio web con Angular
 - Creación de controladores
 - Creación de rutas
 - Creación de método para guardar registros
+- Creación de un método para obtener el registro guardado
 
 ## Pre-requisitos
 
