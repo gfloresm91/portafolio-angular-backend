@@ -73,6 +73,25 @@ var controller = {
                 projects
             });
         });
+    },
+
+    updateProject: (req, res) => {
+        var projectId = req.params.id;
+        var updatedRequest = req.body;
+
+        Project.findByIdAndUpdate(projectId, updatedRequest, {new:true}, (err, projectUpdated) => {
+            if(err) return res.status(500).send({
+                message: 'Error al actualizar los datos.'
+            });
+    
+            if(!projectUpdated) return res.status(404).send({
+                message: 'No existe el proyecto.'
+            });
+
+            return res.status(200).send({
+                project: projectUpdated
+            });
+        });
     }
 
 };
