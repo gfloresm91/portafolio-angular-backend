@@ -57,6 +57,22 @@ var controller = {
                 project
             });
         });
+    },
+
+    getProjects: (req, res) => {
+        Project.find({}).sort('+year').exec((err, projects) => {
+            if(err) return res.status(500).send({
+                message: 'Error al devolver los datos.'
+            });
+    
+            if(!projects) return res.status(404).send({
+                message: 'No hay proyectos registrados.'
+            });
+
+            return res.status(200).send({
+                projects
+            });
+        });
     }
 
 };
