@@ -3,14 +3,14 @@
 var mongoose = require('mongoose');
 var app = require('./app');
 var env = require('./environment/production');
-var port = 3700;
-var connectionString = 'mongodb://localhost:27017/portafolio?authSource=admin';
+var port = env.NODE_PORT;
+var connectionString = 'mongodb://mongo:27017/portafolio?authSource=admin';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(connectionString, { 
     user: env.MONGO_USER,
     pass: env.MONGO_PASS,
-    useNewUrlParser: true 
+    useNewUrlParser: true
 })
 .then(() => {
     console.log('Conexión a la base de datos establecida...');

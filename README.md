@@ -14,6 +14,7 @@ Api Rest del portafolio web con Angular
 - Creación de método que liste todos los registros
 - Creación de método para actualizar un registro
 - Creación de método para eliminar un registro
+- Creación de método para subir archivos
 
 ## Pre-requisitos
 
@@ -24,7 +25,5 @@ Api Rest del portafolio web con Angular
 ## Instalación
 
 ```bash
-$ docker-compose --build -d
-$ npm install
-$ npm start
+$ docker-compose up --build -d
 ``` 

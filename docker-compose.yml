@@ -2,9 +2,27 @@ version: '3.1'
 
 services:
 
+  node.portafolio-backend-angular:
+    image: node:alpine
+    user: 'node'
+    working_dir: /home/node/app
+    container_name: 'node.portafolio-backend-angular'
+    restart: 'always'
+    depends_on: 
+      - mongo
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./:/home/node/app
+    ports:
+      # Here set you personal port
+      - ${NODE_PORT-1000}:${NODE_PORT-1000}
+    command: 'npm start'
+
   mongo:
     image: mongo
-    restart: always
+    restart: 'always'
+    container_name: 'mongo'
     ports:
       - 27017:27017
     environment:
