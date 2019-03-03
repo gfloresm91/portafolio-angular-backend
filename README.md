@@ -15,6 +15,7 @@ Api Rest del portafolio web con Angular
 - Creación de método para actualizar un registro
 - Creación de método para eliminar un registro
 - Creación de método para subir archivos
+- Configuración de cabeceras y CORS de la aplicación
 
 ## Pre-requisitos
 
