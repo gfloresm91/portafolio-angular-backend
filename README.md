@@ -25,5 +25,6 @@ Api Rest del portafolio web con Angular
 ## Instalación
 
 ```bash
+$ npm install
 $ docker-compose up --build -d
 ``` 
