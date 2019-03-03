@@ -1,6 +1,7 @@
 'use strict'
 
 var Project = require('../models/project');
+var fs = require('fs');
 
 var controller = {
     home: (req, res) => {
@@ -120,20 +121,31 @@ var controller = {
             var filePath = req.files.image.path;
             var fileSplit = filePath.split('/');
             var filename = fileSplit[1];
+            var extSplit = filename.split('\.');
+            var fileExt = extSplit[1];
 
-            Project.findByIdAndUpdate(projectId, { image: filename }, { new: true }, (err, projectUpdated) => {
-                if(err) return res.status(500).send({
-                    message: 'Error al subir la imagen.'
-                });
+            if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif') {
+                Project.findByIdAndUpdate(projectId, { image: filename }, { new: true }, (err, projectUpdated) => {
+                    if(err) return res.status(500).send({
+                        message: 'Error al subir la imagen.'
+                    });
+            
+                    if(!projectUpdated) return res.status(404).send({
+                        message: 'No existe el proyecto.'
+                    });
         
-                if(!projectUpdated) return res.status(404).send({
-                    message: 'No existe el proyecto.'
+                    return res.status(200).send({
+                        project: projectUpdated
+                    });
                 });
-    
-                return res.status(200).send({
-                    project: projectUpdated
+            }else {
+                fs.unlink(filePath, (err) => {
+                    return res.status(200).send({
+                        message: 'La extensión no es válida'
+                    });
                 });
-            });
+            } 
+
         } else {
             return res.status(200).send({
                 message: filename
