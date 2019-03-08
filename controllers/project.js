@@ -17,30 +17,31 @@ var controller = {
     },
 
     saveProject: (req, res) => {
-        var project = new Project();
-        var request = req.body;
+		var project = new Project();
 
-        project.name = request.name;
-        project.description = request.description;
-        project.category = request.category;
-        project.year = request.year;
-        project.langs = request.langs;
-        project.image = null;
+        var params = req.body;
+        
+		project.name = params.name;
+		project.description = params.description;
+		project.category = params.category;
+		project.year = params.year;
+		project.langs = params.langs;
+		project.image = null;
 
-        project.save((err, projectSave) => {
-            if(err) return res.status(500).send({
-                message: 'Error al guardar el proyecto.'
+		project.save((err, projectStored) => {
+			if(err) return res.status(500).send({
+                message: 'Error al guardar el documento.'
             });
 
-            if(!projectSave) return res.status(404).send({
+			if(!projectStored) return res.status(404).send({
                 message: 'No se ha podido guardar el proyecto.'
             });
 
-            return res.status(200).send({
-                project: projectSave
+			return res.status(200).send({
+                project: projectStored
             });
-        });
-    },
+		});
+	},
 
     getProject: (req, res) => {
         var projectId = req.params.id;
