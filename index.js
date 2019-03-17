@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var app = require('./app');
 var env = require('./environment/production');
-var port = env.NODE_PORT;
+var port = env.PORTAFOLIO_BACKEND_ANGULAR_PORT;
 var connectionString = 'mongodb://mongo:27017/portafolio?authSource=admin';
 
 mongoose.Promise = global.Promise;

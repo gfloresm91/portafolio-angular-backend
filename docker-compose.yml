@@ -16,7 +16,7 @@ services:
       - ./:/home/node/app
     ports:
       # Here set you personal port
-      - ${NODE_PORT-1000}:${NODE_PORT-1000}
+      - ${PORTAFOLIO_BACKEND_ANGULAR_PORT-1000}:${PORTAFOLIO_BACKEND_ANGULAR_PORT-1000}
     command: 'npm start'
 
   mongo:
